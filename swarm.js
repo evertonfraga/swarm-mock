@@ -1,28 +1,18 @@
 if (Meteor.isClient) {
   // counter starts at 0
-  Session.setDefault('diskSpaceAvailability', 100);
-  Session.setDefault('diskSpaceUsed', 5);
+  Session.setDefault('counter', 0);
 
-  var roundingWithDecimals(num, decimals){
-    var decimalsValue = Math.pow(10,decimals);
-    return Math.round(num * decimalsValue);
-  }
-
-  Template.app.helpers({
-    diskSpaceAvailable: function(){
-      var availableSpace = Session.get('diskSpaceAvailability') - Session.get('diskSpaceUsed');
-      return Math.round(availableSpace*100)/100;
-    },
-    diskSpaceAvailability: function(){
-      return Session.get('diskSpaceAvailability');
-    },
+  Template.swarm.helpers({
+    counter: function () {
+      return Session.get('counter');
+    }
   });
 
-  Template.app.events({
-    'change input[type=range]': function(event){
-      Session.set('diskSpaceAvailability', event.target.value);
+  Template.swarm.events({
+    'click button': function () {
+      // increment the counter when button is clicked
+      Session.set('counter', Session.get('counter') + 1);
     }
-
   });
 }
 
