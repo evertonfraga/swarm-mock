@@ -1,15 +1,96 @@
 <head>
   <title>swarm</title>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
-</head>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,300,700' rel='stylesheet' type='text/css'></head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+	<header>
+		<h1>
+			<strong>Swarm</strong> Dashboard
+		</h1>
+	</header>
 
-  {{> hello}}
+	<div class="container">
+	  {{> app}}
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="app">
+	
+	<div class="row">
+		<section class="three columns widget">
+			<h2>Disk Space</h2>
+
+			<div class="gauge">
+				<number>0.95</number>
+				<small>GB</small>
+			</div>
+
+			<section class="slider">
+				<h3>Disk availability</h3>
+				<number>100GB</number>
+				<input type="range" min="0.2" max="5" value="1" step="0.1">
+			</section>
+		</section>
+
+		<section class="three columns widget">
+			<h2>Bandwidth</h2>
+
+			<div class="gauge">
+				<number>60%</number>
+				<small>Utilization</small>
+			</div>
+
+			<section class="slider">
+				<h3>Swap Price</h3>
+				<number>0.05</number>
+				<small>ETH/GB</small>
+				<input type="range">
+			</section>
+		</section>
+		
+		<section class="three columns widget">
+			<h2>Balance</h2>
+
+			<div class="gauge">
+				<number>8.25</number>
+				<small>ETH</small>
+			</div>
+
+			<section class="credit">
+				<h3>Add Credit</h3>
+				<button>Add Credit</button>
+				<button>Withdraw</button>
+			</section>
+		</section>
+		
+
+		<section class="three columns">
+			<p>Swarm is a system that incentivizes file sharing for apps on the ethereum network.</p>
+			<p>
+				Nodes that download more bytes than upload earn a debt to nodes that don't, if those debts aren't settled in time then they are dropped and their connection slows.
+			</p>
+		</section>
+	</div>
+
+	<div class="row">
+		<section class="">
+			<h2>Upload files</h2>
+			<div class="upload-area">
+				<span>Drop files here</span>
+			</div>
+		</section>
+	</div>
+
+	<div class="row">
+		<section class="">
+			<h2>Recent files</h2>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</section>
+	</div>
+
 </template>

@@ -1,5 +1,120 @@
 /* CSS declarations go here */
+@import 'normalize.scss';
+@import 'skeleton.scss';
+
+$that_blue: #478BD3;
+$dark_blue: #294364;
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
+	background: url(background.png);
+	color: #2E2E2E;
 }
+
+h2 {
+	color: $dark_blue;
+	font-size: 1.9rem;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+body > header {
+	background: linear-gradient(#395a7d, #344f6c);
+	padding: 2.5rem;
+	margin-bottom: 2rem;
+	h1 {
+		font-size: 3.6rem;
+		margin: 0;
+		color: white;
+		font-weight: 200;
+		strong {
+			font-weight: 400;
+		}
+	}
+}
+
+.widget {
+	h2 {
+		font-size: 2.5rem;
+		text-align: center;
+		text-transform: none;
+		font-weight: 300;
+	}
+}
+
+.gauge {
+	margin-bottom: 2rem;
+	number, small {
+		display: block;
+		text-align: center;
+	}
+	number {
+		font-size: 6rem;
+		font-weight: 300;
+		color: $dark_blue;
+		line-height: 1;
+	}
+	small {
+		text-align: center;
+		font-size: 1.7rem;
+		color: $dark_blue;
+		text-transform: uppercase;
+	}
+}
+
+@mixin small_title {
+	color: #A7A7A7;
+	font-size: 1.6rem;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+
+
+.slider {
+	h3 {
+		@include small_title;
+	}
+	number {
+		font-weight: 300;
+		font-size: 3.2rem;
+	}
+	small {
+		font-size: 1.5rem;
+		color: #7D7D7D;
+	}
+	input {
+		display: block;
+	}
+}
+
+.credit {
+	h3 {
+		@include small_title;
+	}
+	button {
+		display: block;
+		border-color: $that_blue;
+		color: $that_blue;
+		width: 100%;
+	}
+}
+
+.upload-area {
+	border: 4px dashed $that_blue;
+	background-color: transparentize($that_blue, 0.9);
+	height: 27rem;
+	position: relative;
+	
+	span {
+		position: absolute;
+		top: 45%;
+		width: 100%;
+		display: block;
+		text-align: center;
+		color: $that_blue;
+		font-size: 2.4rem;
+		font-weight: 300;
+	}
+}
+
